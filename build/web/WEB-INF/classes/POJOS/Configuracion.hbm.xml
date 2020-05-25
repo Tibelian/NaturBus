@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25-may-2020 2:38:59 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Configuracion" table="configuracion" catalog="bd_autobuses_tid" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" />
+        </property>
+        <property name="cif" type="string">
+            <column name="cif" length="10" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="11" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

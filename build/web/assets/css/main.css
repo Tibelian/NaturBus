@@ -1,0 +1,208 @@
+
+/*
+BÁSICO
+*/
+body{
+    font-family:Montserrat, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+@font-face{
+    font-family: Montserrat;
+    src: url('../webfonts/Montserrat-Regular.ttf');
+}
+main{
+    margin-bottom: 50px;
+}
+
+
+
+/*
+FONDO TRANSPARENTE CON IMAGEN
+*/
+.bg-image{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.bg-image::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+.bg-image h1, .bg-image p{
+    z-index: 1;
+}
+
+
+
+/*
+DETALLES
+*/
+.nosotros .border, .nosotros .border-bottom{
+    border-color: #2ECC71 !important;
+}
+.fs-15{
+    font-size: 15px;
+}
+footer p{
+    background-color: rgba(0, 0, 0, .15);
+    padding: 5px 10px 5px 10px;
+    border-radius: 7px;
+}
+
+
+
+/*
+MODIFICACIONES BOOTSTRAP
+*/
+.bg-success{
+    background-color: #2ECC71 !important;
+}
+.text-success{
+    color: #2ECC71 !important;
+}
+.btn-success{
+    background-color: #2ECC71 !important;
+    border-color: #2ECC71 !important;
+}
+.btn-success:hover{
+    background-color: #28B463 !important;
+    border-color: #28B463 !important;
+}
+.dropdown-item.active{
+    background-color: #2ECC71 !important;
+}
+.dropdown-item.active{
+    background-color: #2ECC71 !important;
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color: #2ECC71 !important;
+}
+
+
+
+/*
+ESTILO A LOS BILLETES
+*/
+.breadcrumb{
+    background-color: rgba(0, 0, 0, .15);
+    margin-bottom: 0;
+}
+.breadcrumb li{
+    color: #f9f9f9;
+}
+.breadcrumb li span{
+    color: #000;
+}
+
+
+
+/*
+ESTILO A LOS BILLETES
+*/
+.cardWrap {
+  width: 25em;
+  margin: 2em auto;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.card {
+  height: 12em;
+  float: left;
+  position: relative;
+  padding: 1em;
+  margin-top: 50px;
+  border: 0;
+  background-color: #eee;
+  position: relative;
+  padding-top: 40px;
+}
+
+.cardLeft {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  width: 14em;
+}
+.cardRight {
+  width: 7.7em;
+  border-left: .18em dashed #fff;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: .9em;
+    height: .9em;
+    background: #fff;
+    border-radius: 50%;
+    left: -.5em;
+  }
+  &:before {
+    top: -.4em;
+  }
+  &:after {
+  bottom: -.4em;
+  }
+}
+.card h4{
+    font-size: 19px;
+    margin-bottom: 10px;
+    background-color: #2ECC71;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 7px;
+    padding-left: 14px;
+    border-radius: 5px 0 0 0;
+}
+.card .text{
+    color: #000;
+    margin-top: 7px;
+}
+.card .text h5{
+    font-size: 13px;
+    margin: 0;
+    color: #2ECC71;
+}
+.card .text span{
+    font-size: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    display: block;
+    color: #444;
+}
+.card i{
+    text-align: center;
+    margin-top: -5px;
+    margin-bottom: 20px;
+    background-color: #2ECC71;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 7px;
+    border-radius: 0 5px 0 0;
+    font-size: 22px;
+    margin: 0;
+}
+.card .price{
+    text-align: center;
+}
+.card .price h5{
+    color: #2ECC71;
+    font-size: 28px;
+    margin-bottom: 0;
+}
+
