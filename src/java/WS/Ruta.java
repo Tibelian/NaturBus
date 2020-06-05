@@ -1,6 +1,8 @@
 
 package WS;
 
+import java.util.ArrayList;
+
 public class Ruta {
 
     private String origen;
@@ -9,6 +11,7 @@ public class Ruta {
     private String horaSalida;
     private String plazasDisponibles;
     private String plazasTotales;
+    private ArrayList<Integer> asientosLibres;
     private String precio;
 
     public Ruta() {
@@ -68,6 +71,14 @@ public class Ruta {
 
     public void setPrecio(String precio) {
         this.precio = precio;
+    }
+
+    public ArrayList<Integer> getAsientosLibres() {
+        return asientosLibres;
+    }
+
+    public void setAsientosLibres(ArrayList<Integer> asientosLibres) {
+        this.asientosLibres = asientosLibres;
     }
     
 }

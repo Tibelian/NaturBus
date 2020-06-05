@@ -64,6 +64,43 @@ public class OperacionWS {
                         String fechaViaje = formatter2.format(viajePOJOS.getFecha());
                         String precio = String.valueOf(rutaPOJOS.getPrecio());
                         
+                        // aquí se guardarán las ocupaciones
+                        ArrayList<Integer> ocupaciones = new ArrayList<>();
+                        
+                        // ahora toca obtener los asientos libres
+                        // por lo tanto vamos a recoger los ocupados
+                        Hibernate.initialize(viajePOJOS.getCompras());
+                        Iterator itCompra = viajePOJOS.getCompras().iterator();
+                        while(itCompra.hasNext()){
+                            POJOS.Compra compraPOJOS = (POJOS.Compra) itCompra.next();
+                            
+                            // aquí se encuentra el asiento ocupado
+                            Hibernate.initialize(compraPOJOS.getOcupacions());
+                            Iterator itOcupacion = compraPOJOS.getOcupacions().iterator();
+                            while(itOcupacion.hasNext()){
+                                POJOS.Ocupacion ocupacionPOJOS = (POJOS.Ocupacion) itOcupacion.next();
+                                
+                                // agrega el asiento ocupado al listado
+                                ocupaciones.add(ocupacionPOJOS.getAsiento());
+                                
+                            }
+                            
+                        }
+                        
+                        // calcula los asientos libres
+                        ArrayList<Integer> libres = new ArrayList<>();
+                        for(int i = 1; i <= viajePOJOS.getPlazasTotales(); i++){
+                            boolean encontrado = false;
+                            for(int n = 0; n < ocupaciones.size(); n++){
+                                if(i == ocupaciones.get(n)){
+                                    encontrado = true;
+                                }
+                            }
+                            if(!encontrado){
+                                libres.add(i);
+                            }
+                        }
+                        
                         // inicializa la ruta del servico web
                         Ruta ruta = new Ruta();
                         ruta.setOrigen(rutaPOJOS.getEstacionByIdOrigen().getNombre());
@@ -73,6 +110,7 @@ public class OperacionWS {
                         ruta.setPlazasDisponibles(Integer.toString(viajePOJOS.getPlazasDisponibles()));
                         ruta.setPlazasTotales(Integer.toString(viajePOJOS.getPlazasTotales()));
                         ruta.setPrecio(precio);
+                        ruta.setAsientosLibres(libres);
                         
                         // agrega la ruta al listado
                         listadoFinal.add(ruta);
